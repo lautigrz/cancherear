@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    overflow: hidden;
+}
+
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    text-align: center;
+    transition: 0.5s ease-in-out;
+    padding: 20px;
+}
+
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.541);
+    z-index: 10;
+}
+
+.nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.nav a i {
+    margin-right: 8px;
+}
+
+.left {
+    background: url('https://www.espaciosdeportivos.com.gt/wp-content/uploads/2020/08/canchas-futbol-5.jpg') left center / cover no-repeat;
+}
+
+.right {
+    background: url('https://sportmaster.mx/wp-content/uploads/futbol-7-iluminar-1024x683.jpg') right center / cover no-repeat;
+}
+
+.side:hover {
+    flex: 1.2;
+    filter: brightness(1.2);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 80%;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.botton {
+    display: inline-block;
+    padding: 12px 25px;
+    background: rgba(3, 3, 3, 0.39);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.botton:hover {
+    background: rgba(255, 255, 255, 0.801);
+    color: #000;
+    transform: scale(1.1);
+}
+
+.footer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .side {
+        height: 50vh;
+    }
+
+    .content {
+        max-width: 90%;
+    }
+}

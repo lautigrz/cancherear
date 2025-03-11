@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+.card{
+    box-shadow: 3px 10px 10px rgba(93, 16, 16, 0.2);;
+}
+
+
+
+.lista-torneos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+
+}
+
+.torneo{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr, 60px, 60px, 60px;
+    grid-template-rows: repeat(4,50px);
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(133, 128, 128);
+    width: 60%;
+    height: 30vh;
+    margin-top: 10px;
+}
+
+.title{
+    font-size: 20px;
+    color: rgb(150, 211, 97);
+}
+
+.titulo-torneo{
+    margin-top: 10px;
+    grid-column: 2/6;
+}
+
+.imagen > img{
+
+    width: 150px;
+    height: 145px;
+    border-radius: 10px;
+
+}
+
+.info{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1/4;
+}
+
+.informacion{
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 5px;
+    width: 100%;
+    grid-column: 2/5;
+    grid-row: 2/4;
+}
+
+.fecha{
+    color: rgb(88, 199, 246);
+    font-weight: 700;
+}
+.incrip{
+    font-weight: 500;
+}
+.custom-link {
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: bold; /* Aumenta el grosor de la letra */
+    font-size: 0.9em; /* Aumenta el tamaño de la letra (ajusta según sea necesario) */
+}
+
+.custom-link:hover {
+    color: #f8f9fa; /* Cambia el color al pasar el mouse (opcional) */
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de fondo al pasar el mouse (opcional) */
+}
+.card-text {
+    white-space: nowrap;
+    overflow: hidden; /* Oculta el texto que excede la altura máxima */
+    text-overflow: ellipsis;
+}
+/* Cambiar la duración de la transición del Offcanvas */
+.offcanvas {
+    transition: transform 0.4s  linear; /* Cambiar la duración (0.8s) y la función de aceleración */
+}

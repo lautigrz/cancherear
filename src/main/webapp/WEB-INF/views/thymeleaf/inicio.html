@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css}">
+  <link rel="stylesheet" th:href="@{/css/inicio.css}"/>
+  <title>Alquiler de Canchas</title>
+
+</head>
+<body>
+<nav class="nav">
+  <a href="#"><i class="fa-solid fa-user"></i> Iniciar sesión</a>
+</nav>
+
+<div class="container">
+  <div class="side left">
+    <div class="overlay"></div>
+    <div class="content">
+      <h2>
+        <img src="https://media.tenor.com/gM_OIGy3CQcAAAAj/stadium-arena.gif" alt="Cancha emoji" style="width: 30px; height: auto; vertical-align: middle;">
+        Publica tu Cancha
+      </h2>
+      <p>Si tienes una cancha de fútbol, publícala y recibe reservas fácilmente.</p>
+
+      <p style="display: flex; align-items: center; justify-content: center">
+        <img src="https://images.emojiterra.com/openmoji/v15.1/512px/2714.png" alt="Cancha emoji" style="width: 30px; height: auto; margin-right: 10px;">
+        <span>Controla tu disponibilidad</span>
+      </p>
+      <p style="display: flex; align-items: center; justify-content: center">
+        <img src="https://images.emojiterra.com/openmoji/v15.1/512px/2714.png" alt="Cancha emoji" style="width: 30px; height: auto; margin-right: 10px;">
+        <span>Acepta pagos en línea</span>
+      </p>
+      <p style="display: flex; align-items: center; justify-content: center">
+        <img src="https://images.emojiterra.com/openmoji/v15.1/512px/2714.png" alt="Cancha emoji" style="width: 30px; height: auto; margin-right: 10px;">
+        <span>Atrae más clientes</span>
+      </p>
+
+      <a class="botton" th:href="@{/registro(tipo=${'PUBLICADOR'})}">Publicar Cancha</a>
+
+    </div>
+  </div>
+
+  <div class="side right">
+    <div class="overlay"></div>
+    <div class="content">
+      <h2>
+        <img src="https://images.emojiterra.com/google/noto-emoji/animated-emoji/26bd.gif" alt="Cancha emoji" style="width: 30px; height: auto; vertical-align: middle;">
+        Reserva una Cancha
+      </h2>
+      <p>¿Queres jugar con tus amigos? Encontra la mejor cancha en tu zona y haz tu reserva en segundos.</p>
+
+      <p style="display: flex; align-items: center; justify-content: center">
+        <img src="https://images.emojiterra.com/openmoji/v15.1/512px/2714.png" alt="Cancha emoji" style="width: 30px; height: auto; margin-right: 10px;">
+        <span>Reserva online</span>
+      </p>
+      <p style="display: flex; align-items: center; justify-content: center">
+        <img src="https://images.emojiterra.com/openmoji/v15.1/512px/2714.png" alt="Cancha emoji" style="width: 30px; height: auto; margin-right: 10px;">
+        <span>Opiniones de usuarios</span>
+      </p>
+      <p style="display: flex; align-items: center; justify-content: center">
+        <img src="https://images.emojiterra.com/openmoji/v15.1/512px/2714.png" alt="Cancha emoji" style="width: 30px; height: auto; margin-right: 10px;">
+        <span>Opciones de pago seguras</span>
+      </p>
+
+      <a class="botton" th:href="@{/registro(tipo=${'CLIENTE'})}">Bucar Cancha</a>
+
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  &copy; 2025 Alquiler de Canchas | Todos los derechos reservados
+</footer>
+</body>
+</html>
