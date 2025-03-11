@@ -1,5 +1,6 @@
+
 Proyecto base Taller Web I (Maven and Thymeleaf)
-===============================
+
 
 ## 1. Como iniciar el proyecto
 ```shell
@@ -59,3 +60,4 @@ $ npm test
 * Node 18.16.1 o superior <- Instalación manual desde la [página de node](https://nodejs.org/en) 
 
 *_Proyecto modificado en base a: [Spring MVC hello world example (Maven and Thymeleaf)](https://mkyong.com/spring-mvc/spring-mvc-hello-world-example/) _*
+
