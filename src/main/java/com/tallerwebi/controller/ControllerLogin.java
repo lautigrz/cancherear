@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ControllerLogin {
@@ -34,17 +35,18 @@ public class ControllerLogin {
     @PostMapping(path = "/loggin")
     public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
         ModelMap model = new ModelMap();
-        Usuario usuarioBuscar = this.servicioLogin.loginUsuario(usuario.getEmail(),usuario.getPassword());
+        Usuario usuarioLogin = this.servicioLogin.loginUsuario(usuario.getEmail(),usuario.getPassword());
 
-        if(usuarioBuscar == null) {
+        if(usuarioLogin == null) {
             model.put("error", "Usuario o clave incorrecta");
             model.put("datosLoginDTO", new Usuario());
             return new ModelAndView("login", model);
         }
 
-        request.getSession().setAttribute("nombre", usuarioBuscar.getNombre());
-        System.out.println("redirect:/" + usuarioBuscar.getRole().name().toLowerCase() + "Home");
-        return new ModelAndView("redirect:/" + usuarioBuscar.getRole().name().toLowerCase() + "Home");
+        HttpSession session = request.getSession();
+        session.setAttribute("publicador", usuarioLogin);
+
+        return new ModelAndView("redirect:/" + usuarioLogin.getRole().name().toLowerCase() + "Home");
     }
 
 }

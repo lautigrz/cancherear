@@ -5,6 +5,8 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +29,10 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Rol role;
+
+   @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+   private List<Cancha> canchas = new ArrayList<>();
+
+   // @OneToMany(mappedBy = "usuarioDepo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+   // private List<Deportivo> deportivo = new ArrayList<>();
 }

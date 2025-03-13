@@ -20,7 +20,8 @@ public class RepositorioUsuarioImp implements RepositorioUsuario {
 
     @Transactional
     @Override
-    public void guardarUsuario(Usuario usuario) {
+    public void guardarUsuario(Usuario usuario)
+    {
         this.sessionFactory.getCurrentSession().save(usuario);
     }
 
@@ -34,6 +35,13 @@ public class RepositorioUsuarioImp implements RepositorioUsuario {
         }
         return null;
     }
+
+    @Transactional
+    @Override
+    public Boolean existeUsuario(String email) {
+        return buscarUsuarioPorEmail(email) != null;
+    }
+
 
     @Transactional
     public Usuario buscarUsuarioPorEmail(String email) {

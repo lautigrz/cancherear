@@ -2,6 +2,7 @@ package com.tallerwebi.controller;
 
 import com.tallerwebi.dominio.Rol;
 import com.tallerwebi.dominio.Usuario;
+import com.tallerwebi.excepciones.RegistroException;
 import com.tallerwebi.service.ServicioUsuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,17 +31,21 @@ public class ControllerRegistro {
     @PostMapping(path = "/registrarme")
     public ModelAndView registrarUsuario(@ModelAttribute("usuario") Usuario usuario) {
 
-        Rol rolObj = null;
-        if (!this.rol.isEmpty()) {
-            try {
-                rolObj = Rol.valueOf(this.rol.toUpperCase()); // Convertimos la cadena a enum
-            } catch (IllegalArgumentException e) {
-                // Si el valor de tipo no corresponde a ningún valor del enum, asignamos un valor por defecto
-                rolObj = Rol.PUBLICADOR; // Puedes asignar el rol por defecto que prefieras
-            }
+        if (this.servicioUsuario.existeUsuario(usuario.getEmail())) {
+            throw new RegistroException("Correo electrónico ya registrado");
         }
-        usuario.setRole(rolObj);
-        this.servicioUsuario.registrarUsuario(usuario);
+        Rol rolObj;
+        try {
+            // Intentamos convertir la cadena a un valor del enum, sin asignar valor por defecto de antemano
+            rolObj = Rol.valueOf(this.rol.toUpperCase());
+        } catch (NullPointerException e) {
+            // Si el valor no corresponde a un valor válido del enum, asignamos un rol por defecto
+            rolObj = Rol.PUBLICADOR; // Asignación de valor por defecto
+        }
+
+        usuario.setRole(rolObj); // Asignamos el rol al usuario
+        this.servicioUsuario.registrarUsuario(usuario); // Registramos el usuario
+
         return new ModelAndView("redirect:/registro");
     }
 }

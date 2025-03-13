@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
     public String manejoDeValidacionFormulario(IllegalArgumentException ex,RedirectAttributes redirectAttributes) {
         // Retornar un mensaje de error con un estado HTTP 400 (Bad Request)
         redirectAttributes.addFlashAttribute("error", ex.getMessage());
-        return "redirect:/nuevo-torneo";
+        return "redirect:/registro";
     }
 
     @ExceptionHandler(value = UsuarioException.class)
@@ -28,6 +28,6 @@ public class GlobalExceptionHandler {
         // Agregar el mensaje de error a los atributos para que sea mostrado en la vista
         redirectAttributes.addFlashAttribute("error", e.getMessage());
 
-        return "redirect:/formulario-organizador";
+        return "redirect:/registro";
     }
 }

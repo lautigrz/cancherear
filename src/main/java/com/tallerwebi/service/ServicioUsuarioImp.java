@@ -26,4 +26,9 @@ public class ServicioUsuarioImp implements ServicioUsuario {
     public Usuario loginUsuario(String email, String password) {
         return this.repositorioUsuario.buscarUsuarioPorCredenciales(email, password);
     }
+
+    @Override
+    public Boolean existeUsuario(String email) {
+        return this.repositorioUsuario.existeUsuario(email);
+    }
 }
