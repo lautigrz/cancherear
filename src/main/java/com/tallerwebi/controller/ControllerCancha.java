@@ -4,15 +4,14 @@ import com.tallerwebi.dominio.Cancha;
 import com.tallerwebi.dominio.Usuario;
 import com.tallerwebi.service.ServicioCancha;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,6 +19,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class ControllerCancha {
@@ -56,6 +57,7 @@ public class ControllerCancha {
         try {
             Usuario usuario = (Usuario) session.getAttribute("publicador");
             cancha.setUsuario(usuario);
+            cancha.setEstado(true);
             this.servicioCancha.guardarCancha(cancha);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -63,4 +65,23 @@ public class ControllerCancha {
 
         return new ModelAndView("redirect:nueva-cancha");
     }
+
+    @GetMapping(path = "/cambiar/{id}")
+    @ResponseBody
+    public ResponseEntity<Map<String, String>> cambiarEstado(@PathVariable Long id) {
+
+        Map<String, String> response = new HashMap<>();
+
+        try {
+            Boolean estadoCambiado =  this.servicioCancha.cambiarEstadoDeCancha(id);  // Llamada al servicio
+
+            response.put("estado", estadoCambiado.toString());
+            return ResponseEntity.ok(response);  // Devuelve HTTP 200 con el nuevo estado
+        } catch (Exception e) {
+            response.put("estado", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);  // Error 500 si algo falla
+        }
+
+    }
+
 }

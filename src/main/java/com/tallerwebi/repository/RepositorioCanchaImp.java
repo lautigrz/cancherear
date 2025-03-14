@@ -38,5 +38,23 @@ public class RepositorioCanchaImp implements RepositorioCancha {
 
     }
 
+    @Transactional
+    @Override
+    public Boolean cambiarEstadoDeCancha(Long idCancha) {
+        String hql = "UPDATE Cancha c SET c.estado = CASE WHEN c.estado = true THEN false ELSE true END WHERE c.id = :idCancha";
+        Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("idCancha", idCancha);
+        query.executeUpdate();
+
+        return obtenerEstadoCancha(idCancha);
+    }
+
+    @Transactional
+    public Boolean obtenerEstadoCancha(Long idCancha) {
+        String hql = " SELECT c.estado FROM Cancha c WHERE c.id = :idCancha";
+        Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("idCancha", idCancha);
+        return (Boolean) query.getSingleResult();
+    }
 
 }

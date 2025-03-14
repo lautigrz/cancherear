@@ -12,18 +12,7 @@
 <body>
 <div class="lobby-container">
   <!-- Barra lateral -->
-  <div class="sidebar">
-    <h2>Menú</h2>
-    <ul>
-      <li><a href="/perfil"><i class="fas fa-user"></i> Perfil</a></li>
-      <li><a href="/mis-canchas"><i class="fas fa-futbol"></i> Mis Canchas</a></li>
-      <li><a href="/reservas"><i class="fas fa-calendar-check"></i> Reservas</a></li>
-      <li><a href="/pagos"><i class="fas fa-credit-card"></i> Pagos</a></li>
-      <li><a href="/estadisticas"><i class="fas fa-chart-line"></i> Panel</a></li>
-      <li><a href="/estadisticas"><i class="fa-solid fa-right-to-bracket"></i> Cerrar sesión</a></li>
-    </ul>
-  </div>
-
+  <div th:replace="sidebar :: sidebar"></div>
   <!-- Contenido principal -->
   <div class="main-content">
 
@@ -82,7 +71,7 @@
     </div>
   </div>
 </div>
-<footer>d</footer>
+<div th:replace="footer :: footer"></div>
 <script>
   document.getElementById('imagen').addEventListener('change', function(event) {
     const file = event.target.files[0];

@@ -27,6 +27,8 @@ public class Cancha {
     @Column(nullable = false)
     private String canchaDe;
 
+    @Column(nullable = false)
+    private Boolean estado;
     //@Column(nullable = false)
     //private String urlImagen;
 

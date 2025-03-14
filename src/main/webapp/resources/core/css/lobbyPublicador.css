@@ -187,3 +187,32 @@ footer{
     background-color: #e9ecef;
     transform: scale(1.1);
 }
+.boton-estado {
+
+    color: white; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    border: none; /* Sin borde */
+    padding: 8px 16px; /* Relleno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s ease, transform 0.2s; /* Efecto de transición */
+}
+
+/* Efecto al pasar el mouse */
+.boton-estado:hover {
+
+    transform: scale(1.05); /* Escala ligeramente el botón */
+}
+.estado {
+    max-width: 80%; /* Ajusta el ancho al 90% de la pantalla */
+    width: 800px; /* O un tamaño fijo */
+}
+
+.circulo {
+    width: 20px;  /* Tamaño del círculo */
+    height: 20px;
+    border-radius: 50%; /* Hace que sea un círculo */
+    display: inline-block;
+}
+

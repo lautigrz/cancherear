@@ -27,4 +27,9 @@ public class ServicioCanchaImp implements ServicioCancha {
     public List<Cancha> listarCanchasDePublicador(Long idPublicador) {
         return this.repositorioCancha.listarCanchasDePublicador(idPublicador);
     }
+
+    @Override
+    public Boolean cambiarEstadoDeCancha(Long idCancha) {
+       return this.repositorioCancha.cambiarEstadoDeCancha(idCancha);
+    }
 }

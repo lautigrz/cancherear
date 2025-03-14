@@ -21,6 +21,7 @@
         <playwright.version>1.36.0</playwright.version>
         <hsqldb.version>2.3.2</hsqldb.version>
         <mysql.version>8.0.33</mysql.version>
+        <jackson.version>2.13.0</jackson.version>
     </properties>
 
     <dependencies>
@@ -135,6 +136,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
